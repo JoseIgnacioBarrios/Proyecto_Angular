@@ -1,0 +1,22 @@
+<div>
+  Nombre: <input type="text" [(ngModel)]="nombre"><br><br>
+  Edad: <input type="text" [(ngModel)]="edad"><br><br>
+  Telefono: <input type="text" [(ngModel)]="telefono"><br><br>
+
+  <input type="button" value="Guardar" (click)="guardar()" >
+
+  <!-- ngif para cuando se cumpla la condicion se mostrara la tabla -->
+  <table border="1" *ngIf="agenda.length >0">
+    <tr>
+      <th>Nombre</th>
+      <th>Edad</th>
+      <th>Telefono</th>
+    </tr>
+
+    <tr *ngFor="let c of agenda">
+      <td>{{c.nombre}}</td>
+      <td>{{c.edad}}</td>
+      <td>{{c.tefefono}}</td>
+    </tr>
+  </table>
+</div>
