@@ -1,0 +1,28 @@
+<div>
+  <h1>Seleciones un continente</h1>
+  <select [(ngModel)]="opcion" (change)="buscarPorContinentes()" >
+    <option value="-">--Seleciones un continente</option>
+    <option *ngFor=" let p of listaOpciones" value="{{p}}"> {{p}} </option>
+
+  </select>
+
+  <div *ngIf="paises && paises.length>0 ">
+    <h1>Paises del continente {{opcion}}</h1>
+
+    <table border="1">
+      <tr>
+        <th>Pais</th>
+        <th>Capital</th>
+        <th>Poblacion</th>
+        <th>Bandera</th>
+      </tr>
+      <tr *ngFor="let p of paises">
+        <td>{{p.nombre}}</td>
+        <td>{{p.capital}}</td>
+        <td>{{p.poblacion}}</td>
+        <td><img src="{{p.bandera}}" width="32" height="16"></td>
+
+      </tr>
+    </table>
+  </div>
+</div>
