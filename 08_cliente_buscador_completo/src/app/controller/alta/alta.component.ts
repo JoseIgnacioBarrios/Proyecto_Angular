@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
 })
 export class AltaComponent {
 
-  newUrl:Resultado= new Resultado("","","");
+  newUrl:Resultado= new Resultado();
   tematica:string;
   estadodeAlta:string;
   resultado:Resultado[]=[];

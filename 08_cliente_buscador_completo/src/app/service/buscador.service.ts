@@ -16,7 +16,7 @@ export class BuscadorService {
   //termino suscripcion
   buscar(tematica:string):Observable<Resultado[]>{
 
-    let url:string= "http://localhost:8080/buscar/"+tematica;
+    let url:string= "http://localhost:9000/buscar/"+tematica;
     return this.http.get<Resultado[]>(url);
   }
 }
