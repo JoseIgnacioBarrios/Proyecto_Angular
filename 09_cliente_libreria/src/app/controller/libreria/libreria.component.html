@@ -1,0 +1,20 @@
+<div class="libreria">
+  <div>
+      <label for="">Rango </label><br>
+      Min <input type="text" [(ngModel)]="min"> <!-- ngModel para recoger datos de la vista al Controlador. -->
+      <br>
+      Max <input type="text" [(ngModel)]="max"> <!-- ngModel para recoger datos de la vista al Controlador. -->
+      <br>
+      <br>
+      <input type="button" value="Buscar" (click)="buscar()">
+      <br>
+      <br>
+      <table border="1" *ngIf="books?.length">
+        <tr><th>titulo</th><th>tematica</th><th>precio</th><th>clasificacion</th></tr>
+        <tr *ngFor="let r of books">
+          <td>{{r.titulo}}</td><td>{{r.tematica}}</td><td>{{r.precio}}</td><td>{{r.clasificacion}}</td>
+        </tr>
+      </table>
+
+  </div>
+</div>
