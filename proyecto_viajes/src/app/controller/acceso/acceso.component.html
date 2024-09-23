@@ -1,0 +1,23 @@
+<div *ngIf="isLogin">
+  Usuario <input type="text" [(ngModel)]="usuario" class="form-control"/>
+  Contraseña <input type="text" [(ngModel)]="contrasena" class="form-control"/>
+
+  <button (click)="autentificar()">Acceder</button>
+  <br>
+  <br>
+  <button (click)="registrarpag()">Acceder</button>
+</div>
+
+<div *ngIf="!isLogin">
+   Usuario <input type="text" [(ngModel)]="newCliente.usuario" class="form-control"/>
+  Contraseña <input type="text" [(ngModel)]="newCliente.password" class="form-control"/>
+  Direccion <input type="text" [(ngModel)]="newCliente.direccion" class="form-control"/>
+  DNI <input type="text" [(ngModel)]="newCliente.dni" class="form-control"/>
+  Tarjeta <input type="text" [(ngModel)]="newCliente.tarjeta" class="form-control"/>
+
+  <button (click)="newUser()">Acceder</button>
+</div>
+<div>
+  <router-outlet></router-outlet>
+</div>
+

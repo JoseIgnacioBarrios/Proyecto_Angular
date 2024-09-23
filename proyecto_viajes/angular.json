@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "04_prototipobuscador": {
+    "proyecto_viajes": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -23,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/04_prototipobuscador",
+            "outputPath": "dist/proyecto_viajes",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -69,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "04_prototipobuscador:build:production"
+              "buildTarget": "proyecto_viajes:build:production"
             },
             "development": {
-              "buildTarget": "04_prototipobuscador:build:development"
+              "buildTarget": "proyecto_viajes:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -102,8 +102,5 @@
         }
       }
     }
-  },
-  "cli": {
-    "analytics": false
   }
 }
