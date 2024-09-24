@@ -1,3 +1,4 @@
+import { HotelService } from './../../service/hotel.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrl: './misreservas.component.css'
 })
 export class MisreservasComponent {
+
 
 }

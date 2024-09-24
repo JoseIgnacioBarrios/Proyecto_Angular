@@ -1,11 +1,17 @@
 export class Vuelo{
   idvuelo:number;
-  plazas:number;
+  company:string;
+  fecha:string;
   precio:number;
+  plazas:number;
+  destino:string;
 
-  constructor(idvuelo:number,plaza:number,precio:number){
+  constructor(idvuelo?:number,company?:string,  fecha?:string, precio?:number, plazas?:number, destino?:string){
     this.idvuelo=idvuelo;
-    this.plazas=plaza;
+    this.company=company;
+    this.fecha=fecha;
     this.precio=precio;
+    this.plazas=plazas;
+    this.destino=destino;
   }
 }

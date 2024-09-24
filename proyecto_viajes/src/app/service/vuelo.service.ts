@@ -1,2 +1,18 @@
-MìÛao½d
-Á8ìARšÌù²¿ÜŠp&.Â+ØÀ¼ÍK‹øiH‘Í«)Ã¼Æ‡7Î‹1çoT äµé‰4b›ÚGË	Y|,AÁN¿¦z¾+üz	_•fÈv’¨ŸÒÎ¼ŠA-‹æÕÁ*¶˜[ÙÆzÄPŸ(DG˜XõúyÏ_ì<©ÆÒI8W
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Vuelo } from '../model/Vuelo';
+import { URL_SERVICIO_VUELO } from '../custom_properties';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class VueloService {
+
+  url:string=URL_SERVICIO_VUELO;
+  constructor(private http:HttpClient) { }
+
+  vuelosDisponible(destino:string,npersonas:string):Observable<Vuelo[]>{
+    return this.http.get<Vuelo[]>(this.url+"vuelosDisponible/"+destino+"/"+parseInt(npersonas,10));
+  }
+}

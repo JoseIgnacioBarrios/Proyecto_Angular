@@ -1,1 +1,36 @@
-<p>reserva works!</p>
+<div>
+
+  <h1>Destino</h1>
+  <select [(ngModel)]="opDestino"  (change)="buscarhotel()">
+    <option value="-">--</option>
+    <option *ngFor=" let p of listaDestino" value="{{p}}"> {{p}} </option>
+
+  </select>
+
+  <h1>Hoteles</h1>
+  <select [(ngModel)]="opHotel" (change)="buscarVuelo()" >
+    <option value="-">--</option>
+    <option *ngFor=" let p of listaHotel" value="{{p.idHotel}}"> {{p.nombre}} </option>
+
+  </select>
+
+  <h1>Personas</h1>
+  <select [(ngModel)]="oppersonas" (change)="buscarVuelo()">
+    <option value="-">--</option>
+    <option *ngFor=" let p of npersonas" value="{{p}}"> {{p}} </option>
+
+  </select>
+
+  <h1>Vuelos</h1>
+  <select [(ngModel)]="opvuleos" >
+    <option value="-">--</option>
+    <option *ngFor=" let p of lvuelos" value="{{p.idvuelo}}"> {{p.company}}{{p.fecha}} </option>
+
+  </select>
+
+  <br>
+  <br>
+  <button (click)="crearReserva()">Reservar</button>
+
+
+</div>

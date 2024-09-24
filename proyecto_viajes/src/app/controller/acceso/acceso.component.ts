@@ -4,6 +4,7 @@ import { Cliente } from '../../model/Cliente';
 import { ClientesService } from './../../service/clientes.service';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { MenuComponent } from '../menu/menu.component';
 
 @Component({
   selector: 'app-acceso',
@@ -20,31 +21,48 @@ export class AccesoComponent {
   newCliente:Cliente=new Cliente();
 
 
-  constructor(private clienteService:ClientesService,private router: Router){
+  constructor(private clienteService:ClientesService,private router: Router, private menu:MenuComponent){
 
   }
 
   autentificar(){
-    this.clienteService.validacion(this.usuario,this.contrasena).subscribe(data => this.autenticado=data);
-    if(this.autenticado=="true"){
-      this.clienteService.buscarUsuario(this.usuario).subscribe(data=>this.cliente=data);
-      AUTENTIFICAR.ok=true;
-      AUTENTIFICAR.usuario=this.cliente.usuario;
-      this.router.navigate(["/reserva"]);
-    }
-    else{
-      alert("Usuario no encontrado");
-    }
+    this.clienteService.validacion(this.usuario,this.contrasena).subscribe(data => {
+      if(data=="true"){
+        this.clienteService.buscarUsuario(this.usuario).subscribe(data=>this.menu.menu_usuario=data);
+        this.menu.autenticado=true;
+       // this.menu.menu_usuario= this.cliente.usuario;
+
+        this.router.navigate(["/reserva"]);
+      }
+      else{
+        alert("Usuario no encontrado");
+      }
+    });
+
   }
 
-  registrarpag(){
+  registrar(){
     this.clienteService.save(this.newCliente);
+    this.isLogin=false;
     this.router.navigate(["/acceso"]);
-    alert("Usuario Creado")
+
   }
 
   newUser(){
-    this.clienteService.save(this.newCliente);
+    var mensaje:String;
+    this.clienteService.save(this.newCliente).subscribe(data=>mensaje=data)
+    this.isLogin=true;
+    if(mensaje){
+      alert("Usuario creado");
+      this.isLogin=true;
+    }else {
+      alert("Error usuario no creado");
+    }
+    this.router.navigate(["/acceso"]);
+  }
+  accesoIni(){
+    this.isLogin=false;
+    this.router.navigate(["/acceso"]);
   }
 
 }

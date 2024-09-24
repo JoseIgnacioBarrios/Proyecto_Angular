@@ -1,3 +1,5 @@
+import { Cliente } from '../../model/Cliente';
+import { AUTENTIFICAR } from './../../custom_properties';
 import { Component  } from '@angular/core';
 
 @Component({
@@ -6,6 +8,8 @@ import { Component  } from '@angular/core';
   styleUrl: './menu.component.css'
 })
 export class MenuComponent {
-
-
+// [x: string]: any;
+  //isAutenticado:boolean =AUTENTIFICAR.ok;
+  menu_usuario:Cliente;
+  autenticado:boolean;
 }
