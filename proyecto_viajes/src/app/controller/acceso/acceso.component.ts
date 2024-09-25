@@ -1,5 +1,4 @@
 import { ReservaComponent } from './../reserva/reserva.component';
-import { AUTENTIFICAR } from '../../custom_properties';
 import { Cliente } from '../../model/Cliente';
 import { ClientesService } from './../../service/clientes.service';
 import { Component } from '@angular/core';

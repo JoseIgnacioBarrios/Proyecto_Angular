@@ -1,1 +1,10 @@
+<div>
+  Reservas de <h1>{{usuario}}</h1>
+  <table border="1" *ngIf="misreservas?.length">
+    <tr><th>Destino</th><th>Hotel</th><th>Fecha</th><th>Total</th></tr>
+    <tr *ngFor="let r of misreservas">
+      <td>{{r.hotel.localizacion}}</td><td>{{r.hotel.nombre}}</td><td>{{r.vuelo.fecha}}</td><td>{{r.precio}}</td>
+    </tr>
+  </table>
 
+</div>

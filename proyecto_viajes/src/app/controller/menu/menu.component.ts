@@ -1,5 +1,4 @@
 import { Cliente } from '../../model/Cliente';
-import { AUTENTIFICAR } from './../../custom_properties';
 import { Component  } from '@angular/core';
 
 @Component({

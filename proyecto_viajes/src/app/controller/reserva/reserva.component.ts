@@ -5,6 +5,7 @@ import { Vuelo } from '../../model/Vuelo';
 import { VueloService } from '../../service/vuelo.service';
 import { ReservaService } from '../../service/reserva.service';
 import { MenuComponent } from '../menu/menu.component';
+import { Cliente } from '../../model/Cliente';
 
 @Component({
   selector: 'app-reserva',
@@ -23,12 +24,13 @@ export class ReservaComponent {
   //no funciona si esta vacio por querealizamos un push
   npersonas:string[]=[];
 
-  opvuleos:string
+  opvuleos:string;
   lvuelos:Vuelo[];
 
   constructor(private hotelService:HotelService, private vueloService:VueloService,private reservaServicio:ReservaService, private menu:MenuComponent){
     this.buscarDestino();
     this.personascantidad();
+
   }
 
   buscarDestino():void{
@@ -60,7 +62,7 @@ export class ReservaComponent {
 
   crearReserva():void{
 
-    this.reservaServicio.crear( this.menu.menu_usuario.usuario,parseInt(this.opHotel,10),parseInt(this.opvuleos,10)).subscribe(data =>{
+    this.reservaServicio.crear(this.menu.menu_usuario.usuario ,this.menu.menu_usuario.password ,parseInt(this.opHotel,10),parseInt(this.opvuleos,10),parseInt(this.oppersonas,10)).subscribe(data =>{
       if(data=="true"){
         alert("reserva realizada");
       }else{
