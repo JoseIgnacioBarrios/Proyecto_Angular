@@ -25,11 +25,11 @@ export class ReservaService {
      let codificado=btoa(contrasena+":"+contrasena);
     //let codificado=btoa("user1:user1");
     // //creamos el encabezado
-     let headrs=new HttpHeaders();
-     headrs=headrs.set("Authorization","basic"+codificado);
+     let headers=new HttpHeaders();
+     headers=headers.set("Authorization","Basic "+codificado);
 
 
-    return this.http.post(this.url+"altaReseva",reserva, { headers:headrs,responseType: 'text' });
+    return this.http.post(this.url+"altaReseva",reserva, { headers:headers,responseType: 'text' });
   }
 
   reservas(usuario:string):Observable<Reserva[]>{
